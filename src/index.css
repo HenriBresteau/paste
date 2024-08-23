@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "Inter-Regular";
+    src: url("./fonts/Inter-Regular.ttf") format("truetype");
+    font-weight: 400;
+}
+@font-face {
+    font-family: "Inter-Medium";
+    src: url("./fonts/Inter-Medium.ttf") format("truetype");
+    font-weight: 500;
+}
+@font-face {
+    font-family: "Aeonik";
+    src: url("./fonts/AeonikBold.otf") format("opentype");
+    font-weight: 500;
+}
+
+details {
+    user-select: none;
+}
+details summary svg.lucide-chevron-down {
+    transform: rotate(0);
+}
+details[open] summary svg.lucide-chevron-down {
+    transform: rotate(180deg);
+}
+
+html {
+    overflow-y: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
