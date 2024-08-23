@@ -14,6 +14,8 @@ const buttonVariant = cva(
                     "bg-zinc-900 text-white hover:bg-zinc-600 border border-zinc-800",
                 secondary:
                     "bg-zinc-900 text-zinc-500 hover:text-white/75 hover:bg-zinc-600 border border-zinc-800 ml-auto",
+                membership:
+                    "bg-neutral-800 text-white hover:text-white border-2 border-zinc-700 hover:border-white hover:bg-neutral-900 ",
             },
         },
         defaultVariants: {

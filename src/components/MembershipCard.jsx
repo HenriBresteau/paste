@@ -46,7 +46,7 @@ const MembershipCard = ({ title, price, children, amount, popular }) => {
                         {price}${" "}
                     </p>
                 )}
-                <Button title="Choose a plan" />
+                <Button title="Choose this plan" variant="membership" />
             </div>
         </div>
     );
