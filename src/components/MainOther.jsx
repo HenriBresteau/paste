@@ -58,14 +58,16 @@ const MainOther = () => {
                 <Button title="Browse all" size="fit" variant="secondary" />
             </div>
             <div className="grid lg:grid-cols-3 gap-12">
-                {cardsData.map((card, index) => (
-                    <CardOther
-                        key={index}
-                        title={card.title}
-                        date={card.date}
-                        image={card.image}
-                    />
-                ))}
+                {[...cardsData]
+                    .sort(() => Math.random() - 0.5)
+                    .map((card, index) => (
+                        <CardOther
+                            key={index}
+                            title={card.title}
+                            date={card.date}
+                            image={card.image}
+                        />
+                    ))}
             </div>
         </div>
     );
