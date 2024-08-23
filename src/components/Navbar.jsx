@@ -1,10 +1,12 @@
 import logo from "../assets/logo.svg";
 import Separator from "./Separator";
 import NavbarItem from "./NavbarItem";
-import { MenuIcon, Search, User } from "lucide-react";
+import { MenuIcon, Search, User, X } from "lucide-react";
 import Avatar from "./Avatar";
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
+import AvatarMobile from "./AvatarMobile";
+import SeparatorDashed from "./SeparatorDashed";
 
 const Navbar = () => {
     const [showAvatar, setShowAvatar] = useState(false);
@@ -29,6 +31,13 @@ const Navbar = () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
     }, [showAvatar]);
+
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    // Fonction pour basculer l'état du menu
+    const toggleMenu = () => {
+        setIsMenuOpen((prev) => !prev);
+    };
     return (
         <div className="flex flex-wrap  md:flex-nowrap  gap-8 p-8 items-center justify-between relative">
             <Link to="/">
@@ -47,16 +56,33 @@ const Navbar = () => {
                 <NavbarItem title="community" />
                 <NavbarItem title="membership" />
             </div>
+
             <div className="flex md:hidden">
-                <MenuIcon color="white" />
+                <button onClick={toggleMenu} className="text-white">
+                    {isMenuOpen ? <X size={24} /> : <MenuIcon size={24} />}
+                </button>
             </div>
+
+            {isMenuOpen && (
+                <div className="absolute z-10 top-20 left-0 w-full bg-zinc-800 px-6 py-8 flex  gap-4 md:hidden justify-between items-center">
+                    <div className="flex  flex-col gap-4">
+                        <NavbarItem title="Library" />
+                        <NavbarItem title="Extensions" />
+                        <NavbarItem title="Community" />
+                        <NavbarItem title="Membership" />
+                    </div>
+                    <div className="flex">
+                        <AvatarMobile />
+                    </div>
+                </div>
+            )}
             <div className="hidden md:flex">
                 <Separator width="w-[1px]" heigth="h-6" />
             </div>
             <div className="relative w-full">
                 <input
                     type="text"
-                    className="bg-neutral-900 border border-stone-900 py-2.5 pl-11 pr-4 rounded-lg text-zinc-500 font-inter_400 text-xs w-full"
+                    className="bg-neutral-900 border border-stone-900 py-2.5 pl-11 pr-4 rounded-lg placeholder:text-zinc-500 text-white/75 font-inter_400 text-xs w-full focus:outline-dashed focus:outline-white/75 group"
                     placeholder="Search for specific components, sections, wireframes, and more..."
                 />
                 <div className="absolute inset-0 pl-4 flex items-center pointer-events-none text-zinc-500 ">
