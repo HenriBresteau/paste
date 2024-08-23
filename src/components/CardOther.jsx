@@ -15,7 +15,7 @@ const CardOther = ({ title, date, image }) => {
                     className="rounded-lg group-hover:scale-95 transition-all"
                 />
             </div>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2 transition-all">
                 <div className="flex items-center justify-between">
                     <h3 className="uppercase text-white ">{title}</h3>
                     <div className="cursor-pointer" onClick={toggleBookmark}>
@@ -51,7 +51,9 @@ const CardOther = ({ title, date, image }) => {
                         )}
                     </div>
                 </div>
-                <p className="text-zinc-500">— Added {date}</p>
+                <p className="text-zinc-500 group-hover:text-white/75 transition-colors">
+                    — Added {date}
+                </p>
             </div>
         </div>
     );

@@ -52,12 +52,12 @@ const cardsData = [
 
 const MainOther = () => {
     return (
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col gap-10 mb-32">
             <div className="flex flex-wrap gap-4 items-center justify-between">
                 <TitlePresentation title="Other sections you might like" />
                 <Button title="Browse all" size="fit" variant="secondary" />
             </div>
-            <div className="grid lg:grid-cols-3 gap-8">
+            <div className="grid lg:grid-cols-3 gap-12">
                 {cardsData.map((card, index) => (
                     <CardOther
                         key={index}

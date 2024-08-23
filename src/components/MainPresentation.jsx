@@ -8,8 +8,8 @@ import { Eye } from "lucide-react";
 
 const MainPresentation = ({ title, descprition, badge }) => {
     return (
-        <div className="flex flex-col lg:flex-row gap-12  lg:gap-8 border-b-2 border-stone-900 pb-10">
-            <div className="flex flex-col justify-between">
+        <div className="flex flex-col lg:flex-row gap-12 lg:justify-between lg:gap-8 border-b-2 border-stone-900 pb-10">
+            <div className="flex flex-col justify-between w-1/2 ">
                 <div className="flex flex-col gap-4 lg:mr-4">
                     <TitlePresentation title={title} badge={badge} />
                     <p className="text-zinc-500 text-sm mb-20 lg:mb-10">
