@@ -12,7 +12,7 @@ const Avatar = () => {
     return (
         <div
             className={clsx(
-                "absolute top-0 right-12 py-2 px-1 flex items-center flex-col gap-1.5 bg-zinc-800 drop-shadow-[0_1px_10px_rgba(0,0,0,0.10),inset_0_-15px_54px_rgba(14,16,11,1)] w-[178px] transform transition-transform duration-300  ",
+                "absolute top-0 right-12 py-2 px-1 flex items-center flex-col gap-1.5 bg-zinc-800 drop-shadow-[0_1px_10px_rgba(0,0,0,0.10),inset_0_-15px_54px_rgba(14,16,11,1)] w-[178px] transform transition-transform duration-300 z-20",
                 isVisible ? "translate-y-0" : "-translate-y-5"
             )}
         >
