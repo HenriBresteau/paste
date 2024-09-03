@@ -3,13 +3,14 @@ import MainPresentation from "./MainPresentation";
 import MainOther from "./MainOther";
 import LayoutPage from "./LayoutPage";
 
-const Main = ({ title, description, badge }) => {
+const Main = ({ title, description, badgePro, image }) => {
     return (
         <LayoutPage>
             <MainPresentation
                 title={title}
                 descprition={description}
-                badge={badge}
+                badgePro={badgePro}
+                image={image}
             />
             <MainOther />
         </LayoutPage>

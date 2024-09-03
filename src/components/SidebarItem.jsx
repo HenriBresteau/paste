@@ -15,7 +15,7 @@ const SidebarItem = ({ title, icon, to }) => {
             {icon && <img src={icon} />}
             <div className="flex items-center gap-1.5">
                 <span className="btn rounded-full flex-none bg-gradient-to-r from-transparent to-transparent transition-all h-1.5 w-0 "></span>
-                <p className="text font-inter_400 text-sm tracking-tight text-zinc-500  hover:text-white/75 cursor-pointer">
+                <p className="text font-inter_400 text-sm tracking-tight text-zinc-500  hover:text-white/75 cursor-pointer capitalize">
                     {title}
                 </p>
             </div>

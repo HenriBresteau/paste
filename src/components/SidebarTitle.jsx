@@ -1,7 +1,7 @@
 import { ChevronDown } from "lucide-react";
 import React, { Children } from "react";
 
-const SidebarTitle = ({ icon, title, children, more }) => {
+const SidebarTitle = ({ icon, title, children, more, setShowAll }) => {
     return (
         <details className="flex flex-col gap-6 border-b border-dashed border-zinc-700 pb-6">
             <summary className="flex items-center justify-between cursor-pointer group">
@@ -24,7 +24,7 @@ const SidebarTitle = ({ icon, title, children, more }) => {
                 {children}
             </div>
             {more && (
-                <p className="text-zinc-500 font-inter_400 text-sm tracking-tight mt-6 hover:text-white">
+                <p className="text-zinc-500 font-inter_400 text-sm tracking-tight mt-6 hover:text-white " onClick={()=>setShowAll(true)}>
                     Show more +{" "}
                 </p>
             )}

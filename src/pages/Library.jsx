@@ -8,6 +8,7 @@ import figma from "../assets/figma.svg";
 import Step from "../components/Step";
 import { Pencil } from "lucide-react";
 import { Link } from "react-router-dom";
+import MainOther from "../components/MainOther";
 
 const Library = () => {
     return (

@@ -2,7 +2,7 @@ import Navbar from "./components/Navbar";
 import Main from "./components/Main";
 import Sidebar from "./components/Sidebar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { pageData } from "./data/pageData";
+import { componentsData } from "./data/pageData";
 import Home from "./pages/Home";
 import Library from "./pages/Library";
 import Community from "./pages/Community";
@@ -54,10 +54,10 @@ function App() {
                             </div>
                         }
                     />
-                    {Object.entries(pageData).map(([key, data]) => (
+                    {Object.entries(componentsData).map(([key, data]) => (
                         <Route
                             key={key}
-                            path={`/${key}`}
+                            path={`/${data.slug}`}
                             element={
                                 <div className="flex flex-col md:flex-row ">
                                     <Sidebar />

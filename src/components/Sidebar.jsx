@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import SidebarTitle from "./SidebarTitle";
 import SidebarItem from "./SidebarItem";
 import webflow from "../assets/webflow.svg";
@@ -6,8 +6,13 @@ import figma from "../assets/figma.svg";
 import bgBtn from "../assets/bg-pro.svg";
 import { Bookmark, LayoutGrid, Sparkles, Star, Zap } from "lucide-react";
 import { NavLink } from "react-router-dom";
+import { componentsData } from "../data/pageData";
 
 const Sidebar = () => {
+    const [showAll, setShowAll] = useState(false);
+
+    const sortedPages = Object.values(componentsData).sort();
+    const pagesToShow = showAll ? sortedPages : sortedPages.slice(0, 5);
     return (
         <div className="border-t border-r border-l-0 border-b-0 border-stone-900 p-8  lg:w-[280px] flex flex-col gap-6">
             <SidebarTitle title="Plateform" icon={<Zap width={16} />}>
@@ -19,13 +24,14 @@ const Sidebar = () => {
                 icon={<LayoutGrid width={16} />}
                 more={true}
             >
-                <SidebarItem title="Hero" to="/hero" />
-                <SidebarItem title="Modal" to="/modal" />
-                <SidebarItem title="Services" to="/services" />
-                <SidebarItem title="Testimonials" to="/testimonials" />
-                <SidebarItem title="Pricing" to="/pricing" />
-                <SidebarItem title="FAQ" to="/faq" />
-                <SidebarItem title="Footer" to="/footer" />
+                {pagesToShow.map((page, index) => (
+                    <SidebarItem
+                        key={index}
+                        title={page.slug}
+                        to={`/${page.slug}`}
+                        setShowAll={() => setShowAll()}
+                    />
+                ))}
             </SidebarTitle>
             <SidebarTitle title="Style" icon={<Sparkles width={16} />}>
                 <SidebarItem title="Color" to="/color" />
