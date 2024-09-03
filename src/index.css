@@ -50,3 +50,6 @@ html {
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
+.scrollbar-stable {
+    scrollbar-gutter: stable;
+}
