@@ -1,13 +1,15 @@
 import { Bookmark } from "lucide-react";
-import React, { useState } from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
-const CardOther = ({ title, date, image }) => {
+const CardOther = ({ title, date, image, badgePro, slug }) => {
+    console.log("🚀 ~ CardOther ~ slug:", slug);
     const [isBookmarked, setIsBookmarked] = useState(false);
     const toggleBookmark = () => {
         setIsBookmarked(!isBookmarked);
     };
     return (
-        <div className="flex flex-col gap-4 group">
+        <Link to={`/${slug}`} className="flex flex-col gap-4 group">
             <div className="border relative border-zinc-500 rounded-lg before:inset-0 before:absolute before:bg-black/35 before:rounded-lg bg-zinc-900 group-hover:before:bg-black/20 before:z-10">
                 <img
                     src={`./componsants/${image}`}
@@ -17,7 +19,14 @@ const CardOther = ({ title, date, image }) => {
             </div>
             <div className="flex flex-col gap-2 transition-all">
                 <div className="flex items-center justify-between">
-                    <h3 className="uppercase text-white ">{title}</h3>
+                    <h3 className="uppercase text-white font-inter_500 flex gap-2">
+                        {title}{" "}
+                        {badgePro && (
+                            <span className="from-[#FF7A00] to-[#FF2900] text-base capitalize inline-block text-transparent bg-clip-text bg-gradient-to-r">
+                                Pro
+                            </span>
+                        )}
+                    </h3>
                     <div className="cursor-pointer" onClick={toggleBookmark}>
                         {isBookmarked ? (
                             <div className="">
@@ -51,11 +60,11 @@ const CardOther = ({ title, date, image }) => {
                         )}
                     </div>
                 </div>
-                <p className="text-zinc-500 group-hover:text-white/75 transition-colors">
+                <p className="text-zinc-500 group-hover:text-white/75 font-inter_400 transition-colors">
                     — Added {date}
                 </p>
             </div>
-        </div>
+        </Link>
     );
 };
 
